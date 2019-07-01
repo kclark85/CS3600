@@ -9,16 +9,17 @@
 #include <features.h>
 #include <assert.h>
 #include <stdbool.h>
+#include <errno.h>
 #include "syscall.h"
-#include "eye2eh.c"
 
+int eye2eh(int i, char *buffer, int buffersize, int base);
 
 int main(int argc, char *argv[]){
     int pid = getpid();
     while(true){
         WRITESTRING("\nAwake in ")
-        WRITEINT(pid,sizeof(pid))
-        assert(sleep(1)==0);
+        WRITEINT(pid,5)
+        assert(sleep(1)>=0);
     }
 }
 
