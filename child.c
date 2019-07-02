@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
     while(true){
         WRITESTRING("\nAwake in ")
         WRITEINT(pid,5)
-        assert(sleep(1)>=0);
+                assert(sleep(1)==0);
     }
 }
 
