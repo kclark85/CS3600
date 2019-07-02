@@ -47,15 +47,15 @@ int main(int argc, char *argv[]) {
         int cpid = ChildZero;
         for(int i = 0; i < 5; i++) {
             WRITESTRING("\nParent stopping child\n")
-            assert (kill(cpid, SIGSTOP) == 0); //stop child
+                    assert (kill(cpid, SIGSTOP) == 0); //stop child
             assert(sleep(2)==0);
             WRITESTRING("\nParent starting child\n")
-            assert (kill(cpid, SIGCONT) == 0); //start child
+                    assert (kill(cpid, SIGCONT) == 0); //start child
             assert(sleep(2)==0);
 
         }
         WRITESTRING("\n Parent stopping child (for good)\n")
-        assert(kill(cpid, SIGINT) == 0);
+                assert(kill(cpid, SIGINT) == 0);
         assert(waitpid(-1, &result, 0) != -1);
 //        assert(printf("Process %d exited with status : %d", ChildZero, WEXITSTATUS(result)) !=0);
         pause();
